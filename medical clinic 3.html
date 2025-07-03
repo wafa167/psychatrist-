@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Health Clinic - Comprehensive Medical Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #2b6cb0;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translate(6px);
+        }
+        .open .hamburger-middle {
+            display: none;
+        }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translate(-6px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold text-blue-800 mr-2">H₂</div>
+                <h1 class="text-xl font-bold text-blue-800">Harmony Health</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#" class="nav-link text-blue-800 hover:text-blue-600 font-medium" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link text-blue-800 hover:text-blue-600 font-medium" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link text-blue-800 hover:text-blue-600 font-medium" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link text-blue-800 hover:text-blue-600 font-medium" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="hamburger focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="menu" class="hidden md:hidden bg-white absolute w-full px-4 pb-4 shadow-lg">
+            <ul class="flex flex-col space-y-2">
+                <li><a href="#" class="nav-link block py-2 text-blue-800 hover:text-blue-600 font-medium" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link block py-2 text-blue-800 hover:text-blue-600 font-medium" data-page="about">About Us</a></li>
+                <li><a href="#" class="nav-link block py-2 text-blue-800 hover:text-blue-600 font-medium" data-page="services">Services</a></li>
+                <li><a href="#" class="nav-link block py-2 text-blue-800 hover:text-blue-600 font-medium" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-50 to-cyan-50 py-20 px-4">
+                <div class="container mx-auto flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Your Health Is Our Priority</h1>
+                        <p class="text-lg text-gray-700 mb-8">Compassionate care for the whole family. Our dedicated team provides personalized healthcare services in a comfortable environment.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-page="contact">Book Appointment</a>
+                            <a href="#" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg transition duration-300" data-page="services">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/800x500" alt="Modern medical clinic reception area with friendly staff helping patients at the counter" class="rounded-lg shadow-xl w-full" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Services -->
+            <section class="py-16 px-4">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Our Featured Services</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Service 1 -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Primary Care</h3>
+                            <p class="text-gray-600">Comprehensive healthcare for all ages with personalized treatment plans and preventive care.</p>
+                        </div>
+                        
+                        <!-- Service 2 -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Diagnostics</h3>
+                            <p class="text-gray-600">State-of-the-art laboratory and imaging services for accurate and timely diagnoses.</p>
+                        </div>
+                        
+                        <!-- Service 3 -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Pediatrics</h3>
+                            <p class="text-gray-600">Specialized care for infants, children, and adolescents from our compassionate pediatric team.</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-10">
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center" data-page="services">
+                            View All Services
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us -->
+            <section class="py-16 px-4 bg-blue-50">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Why Choose Harmony Health</h2>
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div>
+                            <img src="" alt="smiling doctor consulting with an elderly patient in a bright examination room" class="rounded-lg shadow-lg w-full" />
+                        </div>
+                        <div>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-1">Experienced Professionals</h3>
+                                        <p class="text-gray-600">Our board-certified physicians have decades of combined experience providing exceptional care.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-1">Same-Day Appointments</h3>
+                                        <p class="text-gray-600">We offer extended hours and same-day appointments for urgent health concerns.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-1">Advanced Technology</h3>
+                                        <p class="text-gray-600">We utilize the latest medical technologies to provide accurate diagnoses and effective treatments.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-1">Patient-Centered Care</h3>
+                                        <p class="text-gray-600">We listen carefully to understand your concerns and develop personalized treatment plans.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pychiatric Medical Center - Online Booking</title>
+    <style>
+        /* Reset and base */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #fefefe;
+            color: #333;
+        }
+
+        header {
+            background: #044d7f;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #044d7f;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #044d7f;
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Appointment form styling */
+        form {
+            background: #e3f2fd;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(4, 77, 127, 0.2);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            margin-top: 1rem;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.6rem;
+            font-size: 1rem;
+            border: 1.5px solid #044d7f;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #ffd54f;
+        }
+
+        button {
+            margin-top: 1.8rem;
+            background: #044d7f;
+            color: white;
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background: #033763;
+        }
+
+        .confirmation {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            font-weight: 600;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Footer */
+        footer {
+            background: #044d7f;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pychiatric Medical Center</h1>
+        <nav>
+            <a href="file:///C:/Users/L%20A%20T%20I%20T%20U%20D%20E/Documents/elegance3.html">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#appointment">Appointment</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="home">
+            <h2>Welcome to Pychiatric Medical Center</h2>
+            <p>At Pychiatric Medical Center, we provide compassionate, expert care for your mental health and
+                well-being. Our experienced psychiatrists are dedicated to supporting you every step of your journey
+                toward healing and improved quality of life.</p>
+        </section>
+
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Our center is staffed with board-certified psychiatric professionals who emphasize personalized treatment
+                plans tailored to each patient's unique needs. We employ the latest evidence-based practices in
+                psychiatric care.</p>
+            <p>We believe mental health is just as important as physical health, and our team is here to provide the
+                support, guidance, and therapies that make a meaningful difference.</p>
+        </section>
+
+        <section id="appointment">
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required min="" />
+
+                <label for="time">Preferred Time</label>
+                <input type="time" id="time" name="time" required />
+
+                <label for="reason">Reason for Appointment</label>
+                <textarea id="reason" name="reason" rows="4" placeholder="Describe your concerns or reasons for booking"
+                    required></textarea>
+
+                <button type="submit">Book Now</button>
+
+                <div id="formMessage" role="alert" aria-live="polite"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2024 Pychiatric Medical Center. All rights reserved.
+    </footer>
+    <script>
+      document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form default submit/reload
+
+            // Get values at submission time
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const time = document.getElementById('time').value.trim();
+            const reason = document.getElementById('reason').value.trim();
+
+            // Format WhatsApp message
+            const waMessage = `Hello, my name is ${fullName}. I just booked an appointment at Psychiatric Medical Center.
+
+Details:
+- Name: ${fullName}
+- Email: ${email}
+- Date: ${date}
+- Time: ${time}
+- Reason: ${reason}
+
+Please confirm my booking. Thank you!`;
+
+            // WhatsApp number (country code + number, no + or spaces)
+            const phoneNumber = "94775746113";
+
+            // Create WhatsApp URL with encoded message
+            const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
+
+            // Open WhatsApp in a new tab/window
+            window.open(waURL, "_blank");
+
+            // Show confirmation message
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = 'Redirecting to WhatsApp to complete your booking...';
+            formMessage.className = 'confirmation';
+
+            // Reset the form
+            this.reset();
+        });
+
+      
+    </script>
+</body>
+
+</html>
